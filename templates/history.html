@@ -21,6 +21,14 @@
         margin-bottom 30px;
         width: 300px;
         }
+
+        button[name="reset"] {
+            background-color: red;
+            color: #fff;
+            font-size: 10px;
+            border-radius: 8px;
+            }
+
         form input, select {
         color: black;
         font-weight: bold;
@@ -76,7 +84,7 @@
         <h3 class="text-center"><a href="/" class="btn-history">Go back</a></h3>
     </div>
 
-    <form action="/reset" method="post" class="form1">
+    <form action="/reset" method="post" class="form">
         <button type="submit" name="reset" value='True'>RESET ALL QUESTIONS</button>
     </form>
 </body>
