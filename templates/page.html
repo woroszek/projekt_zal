@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona Główna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+        background-color: #212529;
+
+        }
+        * {
+        color: white;
+        text-align: justify;
+        }
+        form {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        }
+        form input {
+        color: black;
+        font-weight: bold;
+        }
+        th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #DDD;
+}
+        .btn-history {
+            background-color: #8ca08c;
+            color: #fff;
+            font-size: 30px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            }
+
+        .btn-group button {
+            background-color: #636669;
+            border: 3px solid white;
+            color: white;
+            margin-right: 20px;
+            border-radius: 10px;
+            padding: 15px 20px;
+            white-space: nowrap;
+            overflow: visible;
+
+            }
+
+        .btn-group button {
+            text-align: center;
+            }
+        .btn-group button:hover {
+        border: 3px solid gold;
+        }
+
+        .form1 {
+
+        display: flex;
+        justify-content: center;
+        }
+
+        button[name="fav"] {
+        background-color: #04AA6D;
+
+        }
+        p.text-center {
+        clear: both;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid p-5 bg-dark text-white">
+        <h1 class="text-center" >QUIZZMACHINE</h1><br>
+
+        <div class="alert alert-dark" style="background-color:#4d5053">
+
+
+
+        <p class="text-center">{{komunikat}}</p>
+        <p class="text-center">Select an answer</p>
+
+        <form action="/answer" method="post" class="form1">
+        <div class="btn-group text-center">
+        <button type="submit" name="answer" value='{{answer[0]}}'>{{answer[0]}}</button>
+        <button type="submit" name="answer" value='{{answer[1]}}'>{{answer[1]}}</button>
+        <button type="submit" name="answer" value='{{answer[2]}}'>{{answer[2]}}</button>
+        <button type="submit" name="answer" value='{{answer[3]}}'>{{answer[3]}}</button>
+        </div>
+        </form>
+            <br>
+        </div>
+        <form action="/favourite" method="post" class="form1">
+            <button type="submit" name="fav" value='True'>Add to favourites.</button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col border">
+            {% if true_of_not%}
+            <h5 class="text-center" style="color:green">{{comments}}</h5>
+            {% else %}
+            <h5 class="text-center"style="color:red">{{comments}}</h5>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h5 class="text-center" style="color:green">Correct:</h5>
+            <p class="text-center">{{correct}}</p>
+        </div>
+        <div class="col">
+            <h5 class="text-center"style="color:red">Incorrect:</h5>
+            <p class="text-center">{{incorrect}}</p>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <h3 class="text-center"><a href="/history.html" class="btn-history">History and Favourite</a></h3>
+    </div>
+
+
+</body>
+
+</html>
