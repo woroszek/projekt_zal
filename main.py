@@ -34,13 +34,13 @@ def answerss():
     userrr = request.form.get('answer')
     question_obj = Question.query.filter_by(question=pytanie).first()
     if userrr == odpowiedz:
-        comment.komunikat = 'Brawo. Dobra odpowiedź.'
+        comment.komunikat = 'Good!'
         comment.bool = True
         question_obj.user_correct = 1
         question_obj.asked = True
         db.session.commit()
     else:
-        comment.komunikat = f"Nie tym razem. Poprawna odpowiedź to: {odpowiedz}"
+        comment.komunikat = f"Not this time. Correct answer: {odpowiedz}"
         comment.bool = False
         question_obj.user_correct = 0
         question_obj.asked = True
@@ -54,7 +54,7 @@ def favourite():
     click = request.form.get('fav')
     question_obj = Question.query.filter_by(question=pytanie).first()
     if click:
-        comment.komunikat = f"Dodano pytanie '{pytanie}' do późniejszej nauki."
+        comment.komunikat = f"Added '{pytanie}' to favourites."
         comment.bool = True
         question_obj.favourite = True
         db.session.commit()
